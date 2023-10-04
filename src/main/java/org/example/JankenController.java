@@ -38,7 +38,7 @@ public class JankenController {
     public void janken(int i){
 // No. n janken
         while(true) {
-            System.out.println("No. " + i + "Janken");
+            System.out.println("----- No. " + i + "Janken ------");
 
 // take your hand
             System.out.println("Input the player1's hand");
