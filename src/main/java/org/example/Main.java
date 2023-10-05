@@ -9,7 +9,5 @@ public class Main {
         // IntelliJ IDEA suggests fixing it.
         Controller controller = new Controller();
         controller.start();
-        controller.loop();
-        controller.end();
     }
 }
