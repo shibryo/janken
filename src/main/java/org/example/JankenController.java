@@ -50,23 +50,17 @@ public class JankenController {
             System.out.println(" "+ this.p2.Name + " win!");
         }
     }
-    public void decision(){
-        var hand1 = this.p1.getHand();
-        var hand2 = this.p2.getHand();
+    public String judge(JankenHand hand1, JankenHand hand2){
         System.out.println(hand1 + " vs. " + hand2);
-        var ord1 = hand1.ordinal();
-        var ord2 = hand2.ordinal();
-        if (ord1 == ord2) {
+        if (hand1 == hand2) {
             System.out.println("draw");
-        } else if (ord1 == 0 && ord2 == 2) {
-            this.p1.win();
-            System.out.println("win " + this.p1.Name);
-        } else if (ord1 - 1 == ord2) {
-            this.p1.win();
-            System.out.println("win " + this.p1.Name);
+            return "DRAW";
+        } else if (hand1==JankenHand.PAPER && hand2==JankenHand.ROCK
+                || hand1==JankenHand.ROCK && hand2==JankenHand.SCISSORS
+                || hand1==JankenHand.SCISSORS && hand2==JankenHand.PAPER) {
+            return "WIN";
         } else {
-            this.p2.win();
-            System.out.println("win " + this.p2.Name);
+            return "LOSE";
         }
     }
     public void jankens(){
@@ -80,8 +74,10 @@ public class JankenController {
 
         this.p1.takeYourHand();
         this.p2.takeYourHand();
+        var hand1 = this.p1.getHand();
+        var hand2 = this.p2.getHand();
+        var jankenResult = this.judge(hand1, hand2);
+        System.out.println("p1" + jankenResult);
 
-        this.decision();
-        System.out.println();
     }
 }
