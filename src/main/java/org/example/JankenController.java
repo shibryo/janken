@@ -1,7 +1,6 @@
 package org.example;
 
 import java.util.Scanner;
-import java.util.List;
 public class JankenController {
     public Player p1;
     public Player p2;
