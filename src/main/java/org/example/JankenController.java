@@ -65,20 +65,17 @@ public class JankenController {
     public void jankens(){
         while(this.currentRound<=this.maxRound){
             System.out.println("[Round "+ currentRound +"]");
-            this.janken(this.p1, this.p2);
+            // FIXME: takeYourHand() is not working
+            p1.takeYourHand();
+            p2.takeYourHand();
+            this.play(this.p1, this.p2);
             this.currentRound++;
         }
     }
-    public void janken(Player p1, Player p2){
-
-        p1.takeYourHand();
-        p2.takeYourHand();
-        var hand1 = p1.getHand();
-        var hand2 = p2.getHand();
-        var p1JankenResult = this.judge(hand1, hand2);
-        var p2JankenResult = this.judge(hand2, hand1);
+    public void play(Player p1, Player p2){
+        var p1JankenResult = this.judge(p1.getHand(), p2.getHand());
+        var p2JankenResult = this.judge(p2.getHand(), p1.getHand());
         p1.recordWin(p1JankenResult);
         p2.recordWin(p2JankenResult);
-
     }
 }

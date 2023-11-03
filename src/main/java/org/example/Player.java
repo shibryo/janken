@@ -17,9 +17,7 @@ public class Player {
     public Scanner scan;
 
     public JankenHand getHand() {
-        var hand = this.Hand;
-        this.Hand = null;
-        return hand;
+        return this.Hand;
     }
     public void recordWin(String result){
         if(Objects.equals(result, "WIN"))
