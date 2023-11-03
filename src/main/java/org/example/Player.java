@@ -2,6 +2,7 @@ package org.example;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Player {
@@ -20,8 +21,9 @@ public class Player {
         this.Hand = null;
         return hand;
     }
-    public void win(){
-        this.winTimes++;
+    public void recordWin(String result){
+        if(Objects.equals(result, "WIN"))
+            this.winTimes++;
     }
 
     public void takeYourHand(){
