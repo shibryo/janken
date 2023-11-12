@@ -25,6 +25,7 @@ public class Player {
     }
 
     public void takeYourHand(){
+        this.Hand = null;
         System.out.println("Input the "+ this.Name +"'s hand");
         while (this.Hand == null) {
             System.out.print("hand> ");

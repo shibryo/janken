@@ -50,7 +50,6 @@ public class JankenController {
         }
     }
     public String judge(JankenHand hand1, JankenHand hand2){
-        System.out.println(hand1 + " vs. " + hand2);
         if (hand1 == hand2) {
             System.out.println("draw");
             return "DRAW";
@@ -65,16 +64,18 @@ public class JankenController {
     public void jankens(){
         while(this.currentRound<=this.maxRound){
             System.out.println("[Round "+ currentRound +"]");
-            // FIXME: takeYourHand() is not working
-            p1.takeYourHand();
-            p2.takeYourHand();
+            this.p1.takeYourHand();
+            this.p2.takeYourHand();
             this.play(this.p1, this.p2);
             this.currentRound++;
         }
     }
     public void play(Player p1, Player p2){
+        System.out.println(p1.getHand() + " vs. " + p2.getHand());
         var p1JankenResult = this.judge(p1.getHand(), p2.getHand());
         var p2JankenResult = this.judge(p2.getHand(), p1.getHand());
+        System.out.println(p1.Name + " " + p1JankenResult);
+
         p1.recordWin(p1JankenResult);
         p2.recordWin(p2JankenResult);
     }
