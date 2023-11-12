@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Controller {
     public Controller() {
-        jankenController = new JankenController();
+        jankenController = new JankenController(StandardInput.getInstance());
     }
     JankenController jankenController;
 

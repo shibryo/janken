@@ -10,7 +10,7 @@ class PlayerTest {
     @Test
     void IfInputWinPlayersWinTimesIncrement()
     {
-        var player = new Player("test",  new Scanner(System.in));
+        var player = new Player("test",  StandardInput.getInstance());
         var jankenResult = "WIN";
 
         player.recordWin(jankenResult);
@@ -19,7 +19,7 @@ class PlayerTest {
     }
     @Test
     void IfInputWin2TimesPlayersWinTimesIncrement(){
-        var player = new Player("test", new Scanner(System.in));
+        var player = new Player("test", StandardInput.getInstance());
         var jankenResult = "WIN";
 
         player.recordWin(jankenResult);
@@ -29,7 +29,7 @@ class PlayerTest {
     }
     @Test
     void IfInputLosePlayersWinTimesNotIncrement(){
-        var player = new Player("test", new Scanner(System.in));
+        var player = new Player("test", StandardInput.getInstance());
         var jankenResult = "LOSE";
 
         player.recordWin(jankenResult);

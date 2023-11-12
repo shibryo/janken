@@ -6,9 +6,9 @@ public class JankenController {
     public Player p2;
     public int maxRound=3;
     public int currentRound=1;
-    public Scanner scan;
-    public JankenController(){
-        this.scan = new Scanner(System.in);
+    public IStandardInput standardInput;
+    public JankenController(IStandardInput standardInput){
+        this.standardInput = standardInput;
     }
     public void story(){
         this.start();
@@ -24,8 +24,8 @@ public class JankenController {
     public void entry1(){
         System.out.println("Entry: player1");
         System.out.print("name> ");
-        String str = this.scan.nextLine();
-        this.p1 = new Player(str, this.scan);
+        String str = this.standardInput.getInput();
+        this.p1 = new Player(str, this.standardInput);
         System.out.println("player1: " + str);
         System.out.println();
 
@@ -33,8 +33,8 @@ public class JankenController {
     public void entry2(){
         System.out.println("Entry: player2");
         System.out.print("name> ");
-        String str = this.scan.nextLine();
-        this.p2 = new Player(str, this.scan);
+        String str = this.standardInput.getInput();
+        this.p2 = new Player(str, this.standardInput);
         System.out.println("player2: " + str);
         System.out.println();
 
@@ -51,7 +51,6 @@ public class JankenController {
     }
     public String judge(JankenHand hand1, JankenHand hand2){
         if (hand1 == hand2) {
-            System.out.println("draw");
             return "DRAW";
         } else if (hand1==JankenHand.PAPER && hand2==JankenHand.ROCK
                 || hand1==JankenHand.ROCK && hand2==JankenHand.SCISSORS

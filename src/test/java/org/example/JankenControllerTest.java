@@ -9,7 +9,7 @@ class JankenControllerTest {
     void  IfYouPlayPaperAndRockYouGetWin(){
         JankenHand paper = JankenHand.PAPER;
         JankenHand rock = JankenHand.ROCK;
-        JankenController jankenController = new JankenController();
+        JankenController jankenController = new JankenController(StandardInput.getInstance());
 
         var result = jankenController.judge(paper, rock);
 
@@ -19,7 +19,7 @@ class JankenControllerTest {
     void IfYouPlayRockAndScissorsYouGetWin(){
         JankenHand rock = JankenHand.ROCK;
         JankenHand scissors = JankenHand.SCISSORS;
-        JankenController jankenController = new JankenController();
+        JankenController jankenController = new JankenController(StandardInput.getInstance());
 
         var result = jankenController.judge(rock, scissors);
 
@@ -29,18 +29,28 @@ class JankenControllerTest {
     void IfYouPlayScissorsAndPaperYouGetWin() {
         JankenHand scissors = JankenHand.SCISSORS;
         JankenHand paper = JankenHand.PAPER;
-        JankenController jankenController = new JankenController();
+        JankenController jankenController = new JankenController(StandardInput.getInstance());
 
         var result = jankenController.judge(scissors, paper);
 
         assertEquals("WIN", result);
     }
+    @Test
     void IfYouPlayPaperAndPaperYouGetDraw() {
         JankenHand paper = JankenHand.PAPER;
-        JankenController jankenController = new JankenController();
+        JankenController jankenController = new JankenController(StandardInput.getInstance());
 
         var result = jankenController.judge(paper, paper);
 
         assertEquals("DRAW", result);
+    }
+    @Test
+    void IfEachPlayersHandIsOnlyRockVSRockAtJankensThatWintimesIsEach0() {
+        JankenController jankenController = new JankenController(new ConstInput("ROCK"));
+
+        jankenController.story();
+
+        assertEquals(0, jankenController.p1.winTimes);
+        assertEquals(0, jankenController.p2.winTimes);
     }
 }
