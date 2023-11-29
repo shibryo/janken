@@ -12,8 +12,6 @@ public class JankenController {
     }
     public void story(){
         this.start();
-        this.entry1();
-        this.entry2();
         this.jankens();
         this.callWinner();
     }
@@ -21,23 +19,35 @@ public class JankenController {
         System.out.println("[Rock-Paper-Scissors Begins]");
         System.out.println();
     }
+    public void entry1(String p1name, IStandardInput standardInput){
+        System.out.println("Entry: player1");
+        System.out.print("name> ");
+        this.p1 = new Player(p1name, standardInput);
+        System.out.println("player1: " + p1name);
+        System.out.println();
+    }
     public void entry1(){
         System.out.println("Entry: player1");
         System.out.print("name> ");
-        String str = this.standardInput.getInput();
-        this.p1 = new Player(str, this.standardInput);
-        System.out.println("player1: " + str);
+        String p1name = this.standardInput.getInput();
+        this.p1 = new Player(p1name, this.standardInput);
+        System.out.println("player1: " + p1name);
         System.out.println();
-
+    }
+    public void entry2(String p2name,IStandardInput standardInput){
+        System.out.println("Entry: player2");
+        System.out.print("name> ");
+        this.p2 = new Player(p2name, standardInput);
+        System.out.println("player2: " + p2name);
+        System.out.println();
     }
     public void entry2(){
         System.out.println("Entry: player2");
         System.out.print("name> ");
-        String str = this.standardInput.getInput();
-        this.p2 = new Player(str, this.standardInput);
-        System.out.println("player2: " + str);
+        String p2name = this.standardInput.getInput();
+        this.p2 = new Player(p2name, this.standardInput);
+        System.out.println("player2: " + p2name);
         System.out.println();
-
     }
     public void callWinner(){
         System.out.print(this.p1.winTimes + " to " + this.p2.winTimes);

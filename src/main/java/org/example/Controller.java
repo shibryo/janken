@@ -10,6 +10,8 @@ public class Controller {
     JankenController jankenController;
 
     public void start(){
+        this.jankenController.entry1();
+        this.jankenController.entry2();
         this.jankenController.story();
     }
 }

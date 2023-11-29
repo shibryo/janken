@@ -48,6 +48,9 @@ class JankenControllerTest {
     void IfEachPlayersHandIsOnlyRockVSRockAtJankensThatWintimesIsEach0() {
         JankenController jankenController = new JankenController(new ConstInput("ROCK"));
 
+
+        jankenController.entry1("p1", new ConstInput("ROCK"));
+        jankenController.entry2("p2", new ConstInput("ROCK"));
         jankenController.story();
 
         assertEquals(0, jankenController.p1.winTimes);
